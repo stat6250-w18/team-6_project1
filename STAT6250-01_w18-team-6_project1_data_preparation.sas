@@ -1,3 +1,11 @@
+*******************************************************************************;
+**************** 80-character banner for column width reference ***************;
+* (set window width to banner width to calibrate line length to 80 characters *;
+*******************************************************************************;
+
+* 
+
+This file prepares the dataset described below for analysis.
 
 [Dataset Name] 2016-17 NHL Skater Statistics
 
@@ -42,5 +50,63 @@ HIT   Hits at Even Strength
 FOW   Faceoff Wins at Even Strength
 FOL   Faceoff Losses at Even Strength
 FO%   Faceoff Win Percentage at Even Strength
+
+;
+
+* setup environmental parameters;
+%let inputDatasetURL =
+https://github.com/stat6250/team-6_project1/blob/master/NHL 16-17 data set.xlsx?raw=true
+;
+
+* load raw FRPM dataset over the wire;
+%macro loadDataIfNotAlreadyAvailable(dsn,url,filetype);
+    %put &=dsn;
+    %put &=url;
+    %put &=filetype;
+    %if
+        %sysfunc(exist(&dsn.)) = 0
+    %then
+        %do;
+            %put Loading dataset &dsn. over the wire now...;
+            filename tempfile "%sysfunc(getoption(work))/tempfile.xlsx";
+            proc http
+                method="get"
+                url="&url."
+                out=tempfile
+                ;
+            run;
+            proc import
+                file=tempfile
+                out=&dsn.
+                dbms=&filetype.;
+            run;
+            filename tempfile clear;
+        %end;
+    %else
+        %do;
+            %put Dataset &dsn. already exists. Please delete and try again.;
+        %end;
+%mend;
+%loadDataIfNotAlreadyAvailable(
+    NHL1617_raw,
+    &inputDatasetURL.,
+    xls
+)
+
+* build analytic dataset from FRPM dataset with the least number of columns and
+minimal cleaning/transformation needed to address research questions in
+corresponding data-analysis files;
+
+
+data NHL1617_analytic_file;
+    retain
+        Player Age Pos Tm GP G PTS HIT PIM TOI Pp60_;
+    ;
+    keep
+        Player Age Pos Tm GP G PTS HIT PIM TOI Pp60_;
+    ;
+    Pp60_ = PTS/(TOI);
+    set NHL1617_raw;
+run;
 
 
