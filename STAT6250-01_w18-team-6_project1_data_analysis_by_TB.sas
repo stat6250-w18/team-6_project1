@@ -26,25 +26,31 @@ X "cd ""%substr(%sysget(SAS_EXECFILEPATH),1,%eval(%length(%sysget(SAS_EXECFILEPA
 
 
 title1
-'Research Question: What is the assist to goal ratio of each player on the list?';
+'Research Question: What is the assist to goal ratio of each player on the 
+list?';
 ;
 
 title2
-'Rationale: The goal to assist ratio will help us determine which player is effiecent in these statistical categories.';
+'Rationale: The goal to assist ratio will help us determine which player is 
+effiecent in these statistical categories.'
 ;
 
 footnote1
-'The list of players with the most goals recorded coincidentally have a high number of assists recorded.'
+'The list of players with the most goals recorded coincidentally have a high 
+number of assists recorded.'
 ;
 *
-Methodology: Calculate the goal to assist ratio by dividing the number of goals by assists per player.
-And sort data in descending order to organize the results from high to low assit to goal ratio. This ratio
-will help us distinguish how effective each player is on offense. 
+Methodology: Calculate the goal to assist ratio by dividing the number of 
+goals by assists per player. And sort data in descending order to organize 
+the results from high to low assit to goal ratio. This ratio will help us 
+distinguish how effective each player is on offense. 
 
-Limitations: This ratio can be skewed because some players might have more goals than assists and vice versa .
+Limitations: This ratio can be skewed because some players might have more 
+goals than assists and vice versa .
 
-Possible Follow-up Steps: We would need to calulate the number of shots taken and take the goal to shot ratio.
-For example, a player with 20 goals and 10 assists will have a the same goal to assist ratio as a player with 40 
+Possible Follow-up Steps: We would need to calulate the number of shots taken 
+and take the goal to shot ratio. For example, a player with 20 goals and 10 
+assists will have a the same goal to assist ratio as a player with 40 
 goals and 20 assists. 
 ;
 data=NHL1617_temp
@@ -79,22 +85,28 @@ run;
 
     
 title1 
-'Research Question: What is the goal per minute ratio of each player on the list?'
+'Research Question: What is the goal per minute ratio of each player on the 
+list?'
 ;
 
 title2
-'Rationale: This helps us determine the players efficiency based off of their time on the ice.'
+'Rationale: This helps us determine the players efficiency based off of their 
+time on the ice.'
 ;
 
 footnote1
-'The goal per minute ratio should will help us futher breakdown the player statistics for comparison from the previous question.'
+'The goal per minute ratio should will help us futher breakdown the player 
+statistics for comparison from the previous question.'
 ;
 *
-Methodology: We take the number of goals each player scored and divide it by the number of minutes they played.
+Methodology: We take the number of goals each player scored and divide it by 
+the number of minutes they played.
 
-Limitations: A player that has small number of goals and play time can have a high ratio which affects our results.
+Limitations: A player that has small number of goals and play time can have a 
+high ratio which affects our results.
 
-Possible Follow-up Steps: In addition to this, we can look at their point share to see how much they contribute to their team.
+Possible Follow-up Steps: In addition to this, we can look at their point share 
+to see how much they contribute to their team.
 ;
 data=NHL1617_temp2
     ;
@@ -145,19 +157,24 @@ title1
 ;
 
 title2
-'Rationale: This examines each players efficiency based on the number of assists per their play time.'
+'Rationale: This examines each players efficiency based on the number of 
+assists per their play time.'
 ;
 
 footnote1
-'The assist per minute ratio in addition to the goal per minute ratio should give us a detailed analysis offensive efficency.'
+'The assist per minute ratio in addition to the goal per minute ratio should 
+give us a detailed analysis offensive efficency.'
 ;
 *
-Methodology: We take the number of assists for each player and divide it by the number of minutes they played.
+Methodology: We take the number of assists for each player and divide it by 
+the number of minutes they played.
 
-Limitations: A player with small number of assists and play time can have a high ratio which affects our results and conclusion.
+Limitations: A player with small number of assists and play time can have a 
+high ratio which affects our results and conclusion.
 
-Possible Follow-up Steps: We can take the average play time for all the players and eliminate the players with play time
-less than the average to clean up the results more.
+Possible Follow-up Steps: We can take the average play time for all the players 
+and eliminate the players with play time less than the average to clean up the 
+results more.
 ;
 
 data=NHL1617_temp3;
