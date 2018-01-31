@@ -21,8 +21,6 @@ historical NHL players, teams, scores and leaders.
 
 [Data Dictionary] On the dataset link, there is a button labeled Glossary, that pops out a Glossary of all variables in the dataset.
 
-[Unique ID Schema] The column "Player" is a primary key.
-
 Column header key:
 Age   Age
 Pos   Position
@@ -51,12 +49,18 @@ FOW   Faceoff Wins at Even Strength
 FOL   Faceoff Losses at Even Strength
 FO%   Faceoff Win Percentage at Even Strength
 
+
+[Unique ID Schema] The column "Player" is a primary key.
 ;
+
+
+* Environmental setup;
 
 * setup environmental parameters;
 %let inputDatasetURL =
 https://github.com/stat6250/team-6_project1/blob/master/NHL 16-17 data set.xlsx?raw=true
 ;
+
 
 * load raw FRPM dataset over the wire;
 %macro loadDataIfNotAlreadyAvailable(dsn,url,filetype);
@@ -93,20 +97,50 @@ https://github.com/stat6250/team-6_project1/blob/master/NHL 16-17 data set.xlsx?
     xls
 )
 
+
+* Check raw dataset for duplicates with primary key;
+proc sort
+        nodubkey
+        data=NHL1617_raw
+        dupout=NHL1617_raw_dups
+        out=_null_
+     ;
+     by
+        Player
+     ;
+ run;
+ 
+ 
 * build analytic dataset from FRPM dataset with the least number of columns and
 minimal cleaning/transformation needed to address research questions in
 corresponding data-analysis files;
-
-
 data NHL1617_analytic_file;
     retain
-        Player Age Pos Tm GP G PTS HIT PIM TOI Pp60_;
+        Player 
+        Age 
+        Pos 
+        Tm 
+        GP 
+        G 
+        PTS 
+        HIT 
+        PIM 
+        TOI 
+        Pp60_
     ;
     keep
-        Player Age Pos Tm GP G PTS HIT PIM TOI Pp60_;
+        Player 
+        Age 
+        Pos 
+        Tm 
+        GP 
+        G 
+        PTS 
+        HIT 
+        PIM 
+        TOI 
+        Pp60
     ;
     Pp60_ = PTS/(TOI);
     set NHL1617_raw;
 run;
-
-
