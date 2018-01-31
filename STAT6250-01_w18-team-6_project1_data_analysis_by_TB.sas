@@ -26,18 +26,15 @@ X "cd ""%substr(%sysget(SAS_EXECFILEPATH),1,%eval(%length(%sysget(SAS_EXECFILEPA
 
 
 title1
-'Research Question: What is the assist to goal ratio of each player on the 
-list?';
+'Research Question: What is the assist to goal ratio of each player on the list?'
 ;
 
 title2
-'Rationale: The goal to assist ratio will help us determine which player is 
-effiecent in these statistical categories.'
+'Rationale: The goal to assist ratio will help us determine which player is effiecent in these statistical categories.'
 ;
 
 footnote1
-'The list of players with the most goals recorded coincidentally have a high 
-number of assists recorded.'
+'The list of players with the most goals recorded coincidentally have a high number of assists recorded.'
 ;
 *
 Methodology: Calculate the goal to assist ratio by dividing the number of 
@@ -85,18 +82,15 @@ run;
 
     
 title1 
-'Research Question: What is the goal per minute ratio of each player on the 
-list?'
+'Research Question: What is the goal per minute ratio of each player on the list?'
 ;
 
 title2
-'Rationale: This helps us determine the players efficiency based off of their 
-time on the ice.'
+'Rationale: This helps us determine the players efficiency based off of their time on the ice.'
 ;
 
 footnote1
-'The goal per minute ratio should will help us futher breakdown the player 
-statistics for comparison from the previous question.'
+'The goal per minute ratio should will help us futher breakdown the player statistics for comparison from the previous question.'
 ;
 *
 Methodology: We take the number of goals each player scored and divide it by 
@@ -157,13 +151,11 @@ title1
 ;
 
 title2
-'Rationale: This examines each players efficiency based on the number of 
-assists per their play time.'
+'Rationale: This examines each players efficiency based on the number of assists per their play time.'
 ;
 
 footnote1
-'The assist per minute ratio in addition to the goal per minute ratio should 
-give us a detailed analysis offensive efficency.'
+'The assist per minute ratio in addition to the goal per minute ratio should give us a detailed analysis offensive efficency.'
 ;
 *
 Methodology: We take the number of assists for each player and divide it by 
