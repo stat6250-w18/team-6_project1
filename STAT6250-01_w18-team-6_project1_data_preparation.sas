@@ -16,10 +16,12 @@ This file prepares the dataset described below for analysis.
 [Number of Features] 28
 
 [Data Source] https://www.hockey-reference.com/leagues/NHL_2017_skaters.html
-The dataset ws obtained from Hockey Reference, website that provides the complete source for current and 
-historical NHL players, teams, scores and leaders.
+The dataset ws obtained from Hockey Reference, website that provides the 
+completesource for current and historical NHL players, teams, scores and 
+leaders.
 
-[Data Dictionary] On the dataset link, there is a button labeled Glossary, that pops out a Glossary of all variables in the dataset.
+[Data Dictionary] On the dataset link, there is a button labeled Glossary, 
+that pops out a Glossary of all variables in the dataset.
 
 Column header key:
 Age   Age
@@ -31,7 +33,8 @@ A     Assists
 PTS   Points
 +/-   Plus/Minus
 PIM   Penalties in Minutes
-PS    Point Shares (an estimate of the number of points contributed by the player)
+PS    Point Shares (an estimate of the number of points contributed by the 
+      player)
 EV    Even Strength Goals
 PP    Power Play Goals
 SH    Short-Handed Goals
