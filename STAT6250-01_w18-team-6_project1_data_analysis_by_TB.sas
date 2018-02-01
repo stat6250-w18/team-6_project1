@@ -50,7 +50,9 @@ and take the goal to shot ratio. For example, a player with 20 goals and 10
 assists will have a the same goal to assist ratio as a player with 40 
 goals and 20 assists. 
 ;
-data=NHL1617_temp
+proc print
+	noobs
+	data=NHL1617_temp
     ;
     set 
     	goal_assist_raw
@@ -168,7 +170,6 @@ Possible Follow-up Steps: We can take the average play time for all the players
 and eliminate the players with play time less than the average to clean up the 
 results more.
 ;
-
 data=NHL1617_temp3;
     set 
     	assist_toi_raw
