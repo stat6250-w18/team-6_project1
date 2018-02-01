@@ -103,7 +103,7 @@ https://github.com/stat6250/team-6_project1/blob/master/NHL 16-17 data set.xlsx?
 
 * Check raw dataset for duplicates with primary key;
 proc sort
-        nodubkey
+        nodupkey
         data=NHL1617_raw
         dupout=NHL1617_raw_dups
         out=_null_
@@ -130,6 +130,10 @@ data NHL1617_analytic_file;
         PIM 
         TOI 
         Pp60_
+        Useful
+        Hp60_
+        Pen60_
+        Aggression
     ;
     keep
         Player 
@@ -142,8 +146,26 @@ data NHL1617_analytic_file;
         HIT 
         PIM 
         TOI 
-        Pp60
+        Pp60_
+        Useful
+        Hp60_
+        Pen60_
+        Aggression
     ;
-    Pp60_ = PTS/(TOI);
+    Pp60_ = PTS/(TOI)
+    ;
+    Useful = Pp60_*GP
+    ;
+    Hp60_ = HIT/(3*TOI)
+    ;
+    Pen60_ = PIM/(1.5*TOI)
+    ;
+    Aggression = (((Pp60_ * ((Hp60_ + Pen60_)/2))*GP)**2)/std(Pp60_,Hp60_,Pen60_)
+    ;
+    format 
+        Pp60_ Useful 6.4 
+        tm $5. 
+        GP G PTS HIT PIM TOI 4.
+    ;
     set NHL1617_raw;
 run;
