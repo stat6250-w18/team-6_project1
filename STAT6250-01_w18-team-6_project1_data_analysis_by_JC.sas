@@ -41,38 +41,9 @@ Possible Follow-up Steps: Taking points relative to each team into account.
 
 ;
 
-
-proc import 
-          datafile='C:\Users\JohnJr\Documents\hold.xlsx' 
-          dbms=xlsx 
-          out=data1
-    ; 
-run;
-
-
-data quest1;
-    set 
-       data1
-    ;
-    Pp60_ = PTS/(TOI)
-    ;
-    Useful = Pp60_*GP
-    ;
-    format 
-        Pp60_ Useful 6.4 
-        tm $5. 
-        GP G PTS TOI 4.
-    ;
-    keep 
-        player pos tm GP G PTS TOI Pp60_ Useful
-   ;
-run;
-title;
-footnote;
-
 proc sort 
-        data=quest1 
-        out=temp2
+        data=NHL1617_Analytic_File; 
+        out=temp1
     ;
     by 
         tm descending Useful
@@ -81,7 +52,7 @@ run;
 
 
 proc means 
-        data=quest1 
+        data=temp1 
         noprint
     ;
     class 
@@ -118,7 +89,8 @@ proc print
     ;
 run;
 
-
+title;
+footnote;
 
 title1 
 'Research Question: Does age affect team scoring?'
@@ -140,27 +112,9 @@ Possible Follow-up Steps: Using multiple seasons worth of data to refine "score"
 
 ;
 
-data quest2;
-    set 
-        data1
-    ;
-    Pp60_ = PTS/(TOI)
-    ;
-    format 
-        Pp60_ 6.4 
-        tm $5. 
-        GP G PTS TOI age 4.
-    ;
-    keep 
-        age player pos tm GP G PTS TOI Pp60_
-    ;
-run;
-title;
-footnote;
-
 proc sort 
-      data=quest2 
-      out=temp1
+      data=NHL1617_Analytic_File
+      out=temp2
     ;
     by 
       descending age
@@ -168,7 +122,7 @@ proc sort
 run;
 
 proc means 
-        data=quest2 
+        data=temp2 
         mean 
         noprint
     ;
@@ -221,6 +175,8 @@ proc print
     ;
 run;
 
+title;
+footnote;
 
 title1 
 'Research Question: Who are the most aggressive players?'
@@ -243,32 +199,9 @@ to readjust to a more accurate hit count.
 
 ;
 
-data quest3;
-    set 
-         data1
-    ;
-    Pp60_ = PTS/(TOI)
-    ;
-    Hp60_ = HIT/(3*TOI)
-    ;
-    Pen60_ = PIM/(1.5*TOI)
-    ;
-    Aggression = (((Pp60_ * ((Hp60_ + Pen60_)/2))*GP)**2)/std(Pp60_,Hp60_,Pen60_)
-    ;
-    format 
-        tm $5. 
-        GP G PTS HIT PIM TOI 4.
-    ;
-    keep 
-        player pos tm GP G PTS TOI Pp60_ HIT PIM Hp60_ Pen60_ Aggression
-   ;
-run;
-title;
-footnote;
-
 proc sort 
-        data=quest3 
-        out=temp1
+        data=NHL1617_Analytic_File 
+        out=temp3
     ;
     by 
         tm descending Aggression
@@ -276,7 +209,7 @@ proc sort
 run;
 
 proc means 
-        data=quest3 
+        data=temp3
         noprint
     ;
     class 
@@ -313,3 +246,6 @@ proc print
           aggression_3 = "aggression"
     ;
 run;
+
+title;
+footnote;
