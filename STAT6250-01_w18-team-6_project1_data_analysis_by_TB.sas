@@ -189,7 +189,7 @@ run;
 proc means 
 	data=NHL1617_temp3
     ;
-    class 
+    class
     	Player
     ;
     var  
