@@ -41,33 +41,6 @@ Possible Follow-up Steps: Taking points relative to each team into account.
 
 ;
 
-proc sort 
-        data=NHL1617_Analytic_File; 
-        out=temp1
-    ;
-    by 
-        tm descending Useful
-    ;
-run;
-
-
-proc means 
-        data=temp1 
-        noprint
-    ;
-    class 
-        tm
-    ;
-    var 
-        useful
-    ;
-    output 
-        out=top3list(rename=(_freq_=NumberPlayers))
-          idgroup( max(useful) out[3] (player
-          useful)=)/autolabel autoname
-    ;
-run;
-
 
 proc print 
         data=top3list 
@@ -111,34 +84,6 @@ reduce single season effects.
 Possible Follow-up Steps: Using multiple seasons worth of data to refine "score".
 
 ;
-
-proc sort 
-      data=NHL1617_Analytic_File
-      out=temp2
-    ;
-    by 
-      descending age
-    ;
-run;
-
-proc means 
-        data=temp2 
-        mean 
-        noprint
-    ;
-    where 
-        GP > 20
-    ;
-    class 
-        age
-    ;
-    var 
-        Pp60_
-    ;
-    output 
-        out=mean1
-    ;
-run;
 
 
 data nmean;
@@ -198,32 +143,6 @@ Possible Follow-up Steps:  Accounting for arena scoring in hits,
 to readjust to a more accurate hit count.
 
 ;
-
-proc sort 
-        data=NHL1617_Analytic_File 
-        out=temp3
-    ;
-    by 
-        tm descending Aggression
-    ;
-run;
-
-proc means 
-        data=temp3
-        noprint
-    ;
-    class 
-        tm
-    ;
-    var 
-        Aggression
-    ;
-    output 
-        out=top3list(rename=(_freq_=NumberPlayers))
-          idgroup( max(Aggression) out[3] (player
-          aggression)=)/autolabel autoname
-    ;
-run;
 
 proc print 
         data=top3list 
