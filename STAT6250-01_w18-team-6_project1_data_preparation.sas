@@ -169,3 +169,83 @@ data NHL1617_analytic_file;
     ;
     set NHL1617_raw;
 run;
+
+proc sort 
+        data=NHL1617_Analytic_File; 
+        out=temp1
+    ;
+    by 
+        tm descending Useful
+    ;
+run;
+
+proc means 
+        data=temp1 
+        noprint
+    ;
+    class 
+        tm
+    ;
+    var 
+        useful
+    ;
+    output 
+        out=top3list(rename=(_freq_=NumberPlayers))
+          idgroup( max(useful) out[3] (player
+          useful)=)/autolabel autoname
+    ;
+run;
+
+proc sort 
+      data=NHL1617_Analytic_File
+      out=temp2
+    ;
+    by 
+      descending age
+    ;
+run;
+
+proc means 
+        data=temp2 
+        mean 
+        noprint
+    ;
+    where 
+        GP > 20
+    ;
+    class 
+        age
+    ;
+    var 
+        Pp60_
+    ;
+    output 
+        out=mean1
+    ;
+run;
+
+proc sort 
+        data=NHL1617_Analytic_File 
+        out=temp3
+    ;
+    by 
+        tm descending Aggression
+    ;
+run;
+
+proc means 
+        data=temp3
+        noprint
+    ;
+    class 
+        tm
+    ;
+    var 
+        Aggression
+    ;
+    output 
+        out=top3list(rename=(_freq_=NumberPlayers))
+          idgroup( max(Aggression) out[3] (player
+          aggression)=)/autolabel autoname
+    ;
+run;
