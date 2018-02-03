@@ -30,9 +30,24 @@ title2
 'Rationale: Determining which players are critical to team success.'
 ;
 
+footnote1
+'Above we can see that our 2 of our top players, were part of the 3 finalists last season for the Hart Trophy (player deemed MVP of the season).'
+;
+
+footnote2
+'We can also see that my results winner matches the actual Hart Trophy Winnner: Connor McDavid, thus showing my analysis has some merit.'
+;
+
+footnote3
+'Looking through the team-by-team results, the listed top 3 matches my intuition.'
+;
+
+footnote4
+'Further analysis would be useful in seeing different rankings among position or taking team strength as an adjustment factor.'
+;
 
 *
-Methodology: Using a datastep to create Pp60_ and Useful variables.
+Methodology: Using a datastep to create Pp60_ (Points per minute of Ice Time)and Useful variables (PP60_ * Games Played).
 Then proc means is used to create data set of top 3 players per team.
 
 Limitations: The data does not take into account Points relative to Team.
@@ -73,6 +88,25 @@ title2
 'Rationale: Determine if younger players are more valuable than proven veterans.'
 ;
 
+footnote1
+'Looking at the chart above I have each age listed, the number of players (with 20+ games), their avg Pp60_, and avg score.';
+;
+
+footnote2
+'Looking at Pp60_ we do not see much of change at all as players get older usually hovering around .25'
+;
+
+footnote3
+'However that variable does not take into account that only the best players of that age are still playing in the NHL, thus the average skill should not change due to those with lower scores retiring.'
+;
+
+footnote4
+'Thus the score variable was created to take into account the players listed are the best of their age group'
+;
+
+footnote5
+'This results matches my intuition of players gaining skill up till around age 25/26 where they peak, followed by a downward trend afterwards.'
+;
 
 *
 Methodology: Create Pp60_ and score variables, assuming current _freq_ is 
@@ -84,26 +118,6 @@ reduce single season effects.
 Possible Follow-up Steps: Using multiple seasons worth of data to refine "score".
 
 ;
-
-
-data nmean;
-    set 
-        mean1
-    ;
-    where 
-        _stat_ = "MEAN"
-    ;
-    score = ((_FREQ_)/(100-_FREQ_))*(Pp60_)  + (Pp60_)
-    ;
-run;
-
-proc sort 
-        data=nmean
-    ;
-    by 
-        age
-    ;
-run;
 
 proc print 
         data=nmean 
@@ -131,6 +145,17 @@ title2
 'Rationale: Determine which players are most dangerous for teams both physically and offensively.'
 ;
 
+footnote1
+'Above a made a chart similar to question 1, ranking top offensive and physical players in the NHL';
+;
+
+footnote2
+'I adjusted each used stat (Hits, Penalties Mins, and Pts) to be equally balanced, so the results produce players that are physical and have offensive talent (not just those skilled in one of the 3 areas).'
+;
+
+footnote3
+'These players (typically called Power Forwards), match my intuition on a team-by-team level.'
+;
 
 *
 Methodology: Creating Aggression variable weighting offense and physicality equally, 
