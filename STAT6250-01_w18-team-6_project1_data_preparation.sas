@@ -170,6 +170,7 @@ data NHL1617_analytic_file;
     set NHL1617_raw;
 run;
 
+/* Setup for JC Question 1*/
 proc sort 
         data=NHL1617_Analytic_File; 
         out=temp1
@@ -196,6 +197,7 @@ proc means
     ;
 run;
 
+/* Setup for JC Question 2*/
 proc sort 
       data=NHL1617_Analytic_File
       out=temp2
@@ -224,6 +226,26 @@ proc means
     ;
 run;
 
+data nmean;
+    set 
+        mean1
+    ;
+    where 
+        _stat_ = "MEAN"
+    ;
+    score = ((_FREQ_)/(100-_FREQ_))*(Pp60_)  + (Pp60_)
+    ;
+run;
+
+proc sort 
+        data=nmean
+    ;
+    by 
+        age
+    ;
+run;
+
+/* Setup for JC Question 3 */
 proc sort 
         data=NHL1617_Analytic_File 
         out=temp3
