@@ -170,7 +170,7 @@ to readjust to a more accurate hit count.
 ;
 
 proc print 
-        data=top3list 
+        data=top3list2 
         noobs 
         label
     ;
