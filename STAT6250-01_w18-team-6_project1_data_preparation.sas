@@ -266,7 +266,7 @@ proc means
         Aggression
     ;
     output 
-        out=top3list(rename=(_freq_=NumberPlayers))
+        out=top3list2(rename=(_freq_=NumberPlayers))
           idgroup( max(Aggression) out[3] (player
           aggression)=)/autolabel autoname
     ;
