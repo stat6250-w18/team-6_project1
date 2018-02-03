@@ -118,6 +118,7 @@ proc sort
 minimal cleaning/transformation needed to address research questions in
 corresponding data-analysis files;
 data NHL1617_analytic_file;
+    set NHL1617_raw;
     retain
         Player 
         Age 
@@ -167,7 +168,6 @@ data NHL1617_analytic_file;
         tm $5. 
         GP G PTS HIT PIM TOI 4.
     ;
-    set NHL1617_raw;
 run;
 
 /* Setup for JC Question 1*/
