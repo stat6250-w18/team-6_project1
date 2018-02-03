@@ -172,7 +172,7 @@ run;
 
 /* Setup for JC Question 1*/
 proc sort 
-        data=NHL1617_Analytic_File; 
+        data=NHL1617_Analytic_File 
         out=temp1
     ;
     by 
