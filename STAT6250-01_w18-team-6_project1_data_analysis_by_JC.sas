@@ -31,7 +31,7 @@ title2
 ;
 
 footnote1
-'Above we can see that our 2 of our top players, were part of the 3 finalists last season for the Hart Trophy (player deemed MVP of the season).'
+'Above we can see that 2 of our top 3 players were part of the 3 finalists last season for the Hart Trophy (player deemed MVP of the season).'
 ;
 
 footnote2
@@ -146,7 +146,7 @@ title2
 ;
 
 footnote1
-'Above a made a chart similar to question 1, ranking top offensive and physical players in the NHL';
+'Above I made a chart similar to question 1, ranking top offensive and physical players in the NHL';
 ;
 
 footnote2
