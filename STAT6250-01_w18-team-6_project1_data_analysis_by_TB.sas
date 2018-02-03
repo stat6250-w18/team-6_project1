@@ -52,34 +52,16 @@ goals and 20 assists.
 ;
 proc print
 	noobs
-	data=NHL1617_temp
+        data=NHL1617_raw (obs=20)
     ;
-    set 
-    	goal_assist_raw
-    ;
-    gs_ratio = (G/A)
-run;
-
-proc sort 
-	data=NHL1617_temp
-    ;
-    by  
-    	ascending gs_ratio
+    var
+    	F2
+	Scoring1
+	Scoring2
     ;
 run;
-proc means 
-	data=NHL1617_temp
-    ;
-    class 
-	Player
-    ;
-    var  
-    	goal_assist_raw
-    ;
-output 
-	out=NHL1617_temp
-    ;
-run; 
+title;
+footnote;
 
 
     
@@ -104,47 +86,18 @@ high ratio which affects our results.
 Possible Follow-up Steps: In addition to this, we can look at their point share 
 to see how much they contribute to their team.
 ;
-data=NHL1617_temp2
+proc print
+	noobs
+        data=NHL1617_raw(obs=20)
     ;
-    set 
-    	g_toi_raw
-    ;
-    g_toi_ratio = (G/TOI)
-run;
-    ; 
-proc sort 
-	data=NHL1617_temp2
-    ;
-    by  
-    	ascending g_toi_ratio
+    var
+    	F2
+	Scoring1
+	Ice_Time
     ;
 run;
-    ;
-proc means 
-	data=NHL1617_temp2
-    ;
-    class 
-    	Player
-    ;
-    var  
-    	goal_toi_raw
-    ;
-output 
-	out=NHL1617_temp
-    ;
-run; 
-    ;
-proc print 
-    noobs 
-        data=NHL1617_temp2
-    ;
-     var
-        Players
-        G
-        TOI
-        goal_toi_raw
-    ;
-run;
+title;
+footnote;
 
 
 
@@ -170,46 +123,17 @@ Possible Follow-up Steps: We can take the average play time for all the players
 and eliminate the players with play time less than the average to clean up the 
 results more.
 ;
-data=NHL1617_temp3;
-    set 
-    	assist_toi_raw
-    ;
-    a_toi_ratio = (A/TOI)
-    ;
-run;
-    ;
-proc sort 
-	data=NHL1617_temp3
-    ;
-    by  
-    	ascending a_toi_ratio
-    ;
-run;
-    ;
-proc means 
-	data=NHL1617_temp3
-    ;
-    class
-    	Player
-    ;
-    var  
-    	assist_toi_raw
-    ;
-output 
-	out=NHL1617_temp3
-    ;
-run; 
-    ;
-proc print 
-    noobs 
-        data=NHL1617_temp3
+proc print
+	noobs
+        data=NHL1617_raw(obs=20)
     ;
     var
-        Players
-        A
-        TOI
-        assist_toi_raw
+    	F2
+	Assists
+	Ice_Time
     ;
 run;
+title;
+footnote;
 
 
