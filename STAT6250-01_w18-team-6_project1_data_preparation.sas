@@ -97,7 +97,7 @@ https://github.com/stat6250/team-6_project1/blob/master/NHL 16-17 data set.xlsx?
 %loadDataIfNotAlreadyAvailable(
     NHL1617_raw,
     &inputDatasetURL.,
-    xls
+    xlsx
 )
 
 
