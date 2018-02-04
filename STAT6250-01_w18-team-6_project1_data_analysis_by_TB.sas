@@ -55,9 +55,9 @@ proc print
         data=NHL1617_raw (obs=20)
     ;
     var
-    	F2
-	Scoring1
-	Scoring2
+    	Player
+	A
+	G
     ;
 run;
 title;
@@ -66,19 +66,19 @@ footnote;
 
     
 title1 
-'Research Question: What is the goal per minute ratio of each player on the list?'
-;
+'Research Question: How does the goal and minutes played between the top players compare? 
 
 title2
-'Rationale: This helps us determine the players efficiency based off of their time on the ice.'
+'Rationale: This helps us determine the players efficiency based off of their time on the ice.
+and the amount of goals they score'
 ;
 
 footnote1
 'The goal per minute ratio should will help us futher breakdown the player statistics for comparison from the previous question.'
 ;
 *
-Methodology: We take the number of goals each player scored and divide it by 
-the number of minutes they played.
+Methodology: We organize the data to see the top goal scorers and look at the 
+minutes leaders in among that list.
 
 Limitations: A player that has small number of goals and play time can have a 
 high ratio which affects our results.
@@ -91,9 +91,28 @@ proc print
         data=NHL1617_raw(obs=20)
     ;
     var
-    	F2
-	Scoring1
-	Ice_Time
+    	Player
+	G
+	TOI
+    ;
+run;
+
+proc sort
+       data = NHL1617_raw
+       out = GTOI_Desc
+   ;
+   by
+       descending G
+   ;
+run;
+
+proc print
+        data = GTOI_Desc 
+    ;
+    var
+   	Player
+	G
+	TOI
     ;
 run;
 title;
@@ -102,7 +121,7 @@ footnote;
 
 
 title1
-'Research Question: What is the ratio of assist per minute on the ice?'
+'Research Question: How do the assist rate to minutes played compare between the top players? 
 ;
 
 title2
@@ -113,8 +132,8 @@ footnote1
 'The assist per minute ratio in addition to the goal per minute ratio should give us a detailed analysis offensive efficency.'
 ;
 *
-Methodology: We take the number of assists for each player and divide it by 
-the number of minutes they played.
+Methodology: We organzie the data to see the top assist leaders and see which 
+of those players also lead in minutes played.
 
 Limitations: A player with small number of assists and play time can have a 
 high ratio which affects our results and conclusion.
@@ -128,9 +147,28 @@ proc print
         data=NHL1617_raw(obs=20)
     ;
     var
-    	F2
-	Assists
-	Ice_Time
+    	Player
+	A
+	TOI
+    ;
+run;
+
+proc sort
+       data = NHL1617_raw
+       out = ATOI_Desc
+   ;
+   by
+       descending A
+   ;
+run;
+
+proc print
+        data = ATOI_Desc 
+    ;
+    var
+   	Player
+	A
+	TOI
     ;
 run;
 title;
