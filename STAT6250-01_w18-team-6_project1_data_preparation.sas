@@ -271,3 +271,23 @@ proc means
           aggression)=)/autolabel autoname
     ;
 run;
+
+/* Setup for TB Question 2*/
+proc sort
+       data = NHL1617_raw
+       out = GTOI_Desc
+   ;
+   by
+       descending G
+   ;
+run;
+
+/* Setup for TB Question 3*/
+proc sort
+       data = NHL1617_raw
+       out = ATOI_Desc
+   ;
+   by
+       descending A
+   ;
+run;
