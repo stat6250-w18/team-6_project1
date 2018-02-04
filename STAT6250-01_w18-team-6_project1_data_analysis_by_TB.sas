@@ -66,7 +66,8 @@ footnote;
 
     
 title1 
-'Research Question: How does the goal and minutes played between the top players compare? 
+'Research Question: How does the goal and minutes played between the top 
+players compare?' 
 
 title2
 'Rationale: This helps us determine the players efficiency based off of their time on the ice.
@@ -121,7 +122,8 @@ footnote;
 
 
 title1
-'Research Question: How do the assist rate to minutes played compare between the top players? 
+'Research Question: How do the assist rate to minutes played compare between 
+the top players?' 
 ;
 
 title2
