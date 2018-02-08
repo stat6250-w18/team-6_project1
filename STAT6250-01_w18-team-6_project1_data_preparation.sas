@@ -116,7 +116,8 @@ proc sort
  
 * build analytic dataset from FRPM dataset with the least number of columns and
 minimal cleaning/transformation needed to address research questions in
-corresponding data-analysis files;
+corresponding data-analysis files
+;
 data NHL1617_analytic_file;
     set NHL1617_raw;
     retain
@@ -180,6 +181,12 @@ proc sort
     ;
 run;
 
+
+* 
+Use PROC MEANS to compute create data set of top 3 players per team, and 
+output the results to a temporary dataset, and use PROC SORT to organize 
+the output so it is easier to anlayze to address our research question. 
+;
 proc means 
         data=temp1 
         noprint
@@ -207,6 +214,12 @@ proc sort
     ;
 run;
 
+
+* 
+Use PROC MEANS to Create Pp60_ and score variables, assuming current _freq_ 
+is top _freq_% of age, and output the results to a temporary dataset. And 
+use PROC SORT to organize the output from the temporary dataset.
+;
 proc means 
         data=temp2 
         mean 
@@ -270,9 +283,15 @@ proc means
           idgroup( max(Aggression) out[3] (player
           aggression)=)/autolabel autoname
     ;
-run;
+run; 
 
 /* Setup for TB Question 2*/
+
+* 
+Use PROC SORT to organize the temporary dateset we created as part of the 
+analysis process to address the research question we raised. We organize
+the results to better analyze the ouput for comparision.
+;
 proc sort
        data = NHL1617_raw
        out = GTOI_Desc
