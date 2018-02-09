@@ -295,7 +295,7 @@ proc means
 run; 
 
 
-/* Setup for TB Question 2*/
+* Setup for TB Question 2
 
 * 
 Use PROC SORT to organize the temporary dateset we created as part of the 
@@ -312,7 +312,7 @@ proc sort
 run;
 
 
-/* Setup for TB Question 3*/
+* Setup for TB Question 3
 proc sort
        data = NHL1617_raw
        out = ATOI_Desc
