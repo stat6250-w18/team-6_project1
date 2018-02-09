@@ -172,7 +172,7 @@ data NHL1617_analytic_file;
 run;
 
 
-/* Setup for JC Question 1*/
+* Setup for JC Question 1;
 
 * 
 Use PROC MEANS to compute create data set of top 3 players per team, and 
@@ -206,7 +206,7 @@ proc means
 run;
 
 
-/* Setup for JC Question 2*/
+* Setup for JC Question 2;
 proc sort 
       data=NHL1617_Analytic_File
       out=temp2
@@ -261,7 +261,13 @@ proc sort
 run;
 
 
-/* Setup for JC Question 3 */
+* Setup for JC Question 3 ;
+Use PROC MEANS to compute create data set of top 3 aggressive players 
+per team, and output the results to a temporary dataset, and use 
+PROC SORT to organize the output so it is easier to anlayze to address 
+our research question. 
+;
+*
 proc sort 
         data=NHL1617_Analytic_File 
         out=temp3
