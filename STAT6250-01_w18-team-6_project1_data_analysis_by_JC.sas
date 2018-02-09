@@ -5,10 +5,12 @@
 *******************************************************************************;
 
 *
-This file uses the following analytic dataset to 
+This file uses the following analytic dataset to analyze NHL Data from 16-17
+
 Dataset Name: NHL 16-17 data set.xlsx created in external file
 STAT6250-01_w18-team-6_project1_data_preparation.sas, which is assumed to be
 in the same directory as this file
+
 See included file for dataset properties
 ;
 
@@ -47,7 +49,8 @@ footnote4
 ;
 
 *
-Methodology: Using a datastep to create Pp60_ (Points per minute of Ice Time)and Useful variables (PP60_ * Games Played).
+Methodology: Using a datastep to create Pp60_ (Points per minute of Ice Time)
+and Useful variables (PP60_ * Games Played).
 Then proc means is used to create data set of top 3 players per team.
 
 Limitations: The data does not take into account Points relative to Team.
@@ -115,7 +118,8 @@ top _freq_% of age. Using proc sort to sort by score.
 Limitations: Only one season worth of data, using more would 
 reduce single season effects.
 
-Possible Follow-up Steps: Using multiple seasons worth of data to refine "score".
+Possible Follow-up Steps: Using multiple seasons worth of 
+data to refine "score".
 
 ;
 
@@ -158,8 +162,8 @@ footnote3
 ;
 
 *
-Methodology: Creating Aggression variable weighting offense and physicality equally, 
-while also valuing decreased variability.
+Methodology: Creating Aggression variable weighting offense 
+and physicality equally, while also valuing decreased variability.
 
 Limitations: Teams and refs count hits and penalties differently 
 based on arena or ref respectively.
