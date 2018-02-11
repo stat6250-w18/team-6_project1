@@ -174,11 +174,8 @@ run;
 
 * Setup for JC Question 1;
 
-* 
-Use PROC MEANS to compute create data set of top 3 players per team, and 
-output the results to a temporary dataset, and use PROC SORT to organize 
-the output so it is easier to anlayze to address our research question. 
-;
+* Using proc sort to sort data by variable useful for each team;
+
 proc sort 
         data=NHL1617_Analytic_File 
         out=temp1
@@ -187,6 +184,11 @@ proc sort
         tm descending Useful
     ;
 run;
+
+* 
+Outputting top 3 players with the highest useful value per team in a new data 
+set top3list
+;
 
 proc means 
         data=temp1 
@@ -207,6 +209,9 @@ run;
 
 
 * Setup for JC Question 2;
+
+* Sorting analytic file by age;
+
 proc sort 
       data=NHL1617_Analytic_File
       out=temp2
@@ -216,12 +221,11 @@ proc sort
     ;
 run;
 
-
 * 
-Use PROC MEANS to Create Pp60_ and score variables, assuming current _freq_ 
-is top _freq_% of age, and output the results to a temporary dataset. And 
-use PROC SORT to organize the output from the temporary dataset.
+Finding the mean Pp60_ for each age, including only the players 
+that played more than 20 games
 ;
+
 proc means 
         data=temp2 
         mean 
@@ -241,6 +245,12 @@ proc means
     ;
 run;
 
+* 
+Using the proc means output file to create a new variable score, 
+which adjusts Pp60_ by assuming the current players are the 
+best of their age.
+;
+
 data nmean;
     set 
         mean1
@@ -252,6 +262,10 @@ data nmean;
     ;
 run;
 
+*
+Sorting my final mean data file by age
+;
+
 proc sort 
         data=nmean
     ;
@@ -262,12 +276,11 @@ run;
 
 
 * Setup for JC Question 3 ;
-Use PROC MEANS to compute create data set of top 3 aggressive players 
-per team, and output the results to a temporary dataset, and use 
-PROC SORT to organize the output so it is easier to anlayze to address 
-our research question. 
-;
+
 *
+Sorting Analytic File by Aggression for each team
+;
+
 proc sort 
         data=NHL1617_Analytic_File 
         out=temp3
@@ -276,6 +289,11 @@ proc sort
         tm descending Aggression
     ;
 run;
+
+*
+Outputting top 3 players with the highest aggression value per team 
+in a new data set top3list
+;
 
 proc means 
         data=temp3
