@@ -316,9 +316,8 @@ run;
 * Setup for TB Question 2;
 
 * 
-Use PROC SORT to organize the temporary dateset we created as part of the 
-analysis process to address the research question we raised. We organize
-the results to better analyze the ouput for comparision.
+Use PROC SORT to organize the data to see which of the top scorers in 
+the league play the most minutes
 ;
 proc sort
        data = NHL1617_raw
@@ -331,6 +330,11 @@ run;
 
 
 * Setup for TB Question 3;
+
+*
+Organizing the data to see which of the players that lead in number of assists 
+in the league also play the most minutes
+;
 proc sort
        data = NHL1617_raw
        out = ATOI_Desc
