@@ -26,15 +26,18 @@ X "cd ""%substr(%sysget(SAS_EXECFILEPATH),1,%eval(%length(%sysget(SAS_EXECFILEPA
 
 
 title1
-'Research Question: Who are the top players leading in both assists and goals? And how do they compare among one another?
+'Research Question: Who are the top players leading in both assists and goals? 
+And how do they compare among one another?
 ;
 
 title2
-'Rationale: The goal and assist rate will help us determine which player is effiecent in these statistical categories.'
+'Rationale: The goal and assist rate will help us determine which player is 
+effiecent in these statistical categories.'
 ;
 
 footnote1
-'The list of players with the most goals recorded coincidentally have a high number of assists recorded.'
+'The list of players with the most goals recorded coincidentally have a high 
+number of assists recorded.'
 ;
 *
 Methodology: Calculate the goal to assist numbers among the top players. 
@@ -64,24 +67,27 @@ footnote;
 
     
 title1 
-'Research Question: How does the goal and minutes played between the top players compare?' 
+'Research Question: How does the goal and minutes played between the top 
+players compare?' 
 
 title2
-'Rationale: This helps us determine the players efficiency based off of their time on the ice and the amount of goals they score.'
+'Rationale: This helps us determine the players efficiency based off of 
+their time on the ice and the amount of goals they score.'
 ;
 
 footnote1
-'The goal and minutes played will help us futher breakdown the player statistics for different comparisons.'
+'The goal and minutes played will help us futher breakdown the player 
+statistics for different comparisons.'
 ;
 *
-Methodology: We organize the data to see the top goal scorers and look at the 
-minutes leaders in among that list.
+Methodology: We organize the data to see the top goal scorers and look 
+at the minutes leaders in among that list.
 
-Limitations: Having more time on the ice can have a positive impact on a team 
-even if the player is not scoring.
+Limitations: Having more time on the ice can have a positive impact on 
+a team even if the player is not scoring.
 
-Possible Follow-up Steps: In addition to this, we can look at their point share 
-to see how much they contribute to their team.
+Possible Follow-up Steps: In addition to this, we can look at their 
+point share to see how much they contribute to their team.
 ;
 proc print
 	noobs
@@ -118,22 +124,25 @@ footnote;
 
 
 title1
-'Research Question: How do the assist rate to minutes played compare between the top players?' 
+'Research Question: How do the assist rate to minutes played compare 
+between the top players?' 
 ;
 
 title2
-'Rationale: This examines each players efficiency based on the number of assists per their play time.'
+'Rationale: This examines each players efficiency based on the number of 
+assists per their play time.'
 ;
 
 footnote1
-'The assist and minutes played in addition to the goal and minutes played should give us a detailed analysis offensive efficency.'
+'The assist and minutes played in addition to the goal and minutes played 
+should give us a detailed analysis offensive efficency.'
 ;
 *
 Methodology: We organzie the data to see the top assist leaders and see which 
 of those players also lead in minutes played.
 
-Limitations: A player with small number of assists but longer play time can still
-have a positive effect on a teams other stats.
+Limitations: A player with small number of assists but longer play time can 
+still have a positive effect on a teams other stats.
 
 Possible Follow-up Steps: We can take the average play time for all the players 
 and eliminate the players with play time less than the average to clean up the 
