@@ -1,11 +1,11 @@
+
 *******************************************************************************;
 **************** 80-character banner for column width reference ***************;
 * (set window width to banner width to calibrate line length to 80 characters *;
-*******************************************************************************;
+*******************************************************************************
 
 *
-This file uses the following analytic dataset to address several research 
-questions regarding NHL16-17 player statistics.
+This file uses the following analytic dataset to analyze NHL Data from 16-17
 
 Dataset Name: NHL 16-17 data set.xlsx created in external file
 STAT6250-01_w18-team-6_project1_data_preparation.sas, which is assumed to be
@@ -24,20 +24,16 @@ X "cd ""%substr(%sysget(SAS_EXECFILEPATH),1,%eval(%length(%sysget(SAS_EXECFILEPA
 %include '.\STAT6250-01_w18-team-6_project1_data_preparation.sas';
 
 
-
 title1
-'Research Question: Who are the top players leading in both assists and goals? 
-And how do they compare among one another?
+'Research Question: Who are the top players leading in both assists and goals? And how do they compare among one another?'
 ;
 
 title2
-'Rationale: The goal and assist rate will help us determine which player is 
-effiecent in these statistical categories.'
+'Rationale: The goal and assist rate will help us determine which player is effiecent in these statistical categories.'
 ;
 
 footnote1
-'The list of players with the most goals recorded coincidentally have a high 
-number of assists recorded.'
+'The list of players with the most goals recorded coincidentally have a high number of assists recorded.'
 ;
 *
 Methodology: Calculate the goal to assist numbers among the top players. 
@@ -67,17 +63,14 @@ footnote;
 
     
 title1 
-'Research Question: How does the goal and minutes played between the top 
-players compare?' 
+'Research Question: How does the goal and minutes played between the top players compare?' 
 
 title2
-'Rationale: This helps us determine the players efficiency based off of 
-their time on the ice and the amount of goals they score.'
+'Rationale: This helps us determine the players efficiency based off of their time on the ice and the amount of goals they score.'
 ;
 
 footnote1
-'The goal and minutes played will help us futher breakdown the player 
-statistics for different comparisons.'
+'The goal and minutes played will help us futher breakdown the player statistics for different comparisons.'
 ;
 *
 Methodology: We organize the data to see the top goal scorers and look 
@@ -124,18 +117,15 @@ footnote;
 
 
 title1
-'Research Question: How do the assist rate to minutes played compare 
-between the top players?' 
+'Research Question: How do the assist rate to minutes played compare between the top players?' 
 ;
 
 title2
-'Rationale: This examines each players efficiency based on the number of 
-assists per their play time.'
+'Rationale: This examines each players efficiency based on the number of assists per their play time.'
 ;
 
 footnote1
-'The assist and minutes played in addition to the goal and minutes played 
-should give us a detailed analysis offensive efficency.'
+'The assist and minutes played in addition to the goal and minutes played should give us a detailed analysis offensive efficency.'
 ;
 *
 Methodology: We organzie the data to see the top assist leaders and see which 
