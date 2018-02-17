@@ -92,7 +92,7 @@ title2
 ;
 
 footnote1
-'Looking at the chart above I have each age listed, the number of players (with 20+ games), their avg Pp60_, and avg score.';
+'Looking at the chart above I have each age listed, their avg Pp60_, and avg score.';
 ;
 
 footnote2
@@ -113,7 +113,7 @@ footnote5
 
 *
 Methodology: Create Pp60_ and score variables, assuming current _freq_ is 
-top _freq_% of age. Using proc sort to sort by score.
+top _freq_% of age. Using proc sgplot to visualize data.
 
 Limitations: Only one season worth of data, using more would 
 reduce single season effects.
