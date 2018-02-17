@@ -162,7 +162,9 @@ data NHL1617_analytic_file;
     ;
     Pen60_ = PIM/(1.5*TOI)
     ;
-    Aggression = (((Pp60_ * ((Hp60_ + Pen60_)/2))*GP)**2)/std(Pp60_,Hp60_,Pen60_)
+    test = std(Pp60_, Hp60_, Pen60_);
+    if test ^=0 then Aggression = (((Pp60_ * ((Hp60_ + Pen60_)/2))*GP)**2)/test;
+    else Aggression=0
     ;
     format 
         Pp60_ Useful 6.4 
@@ -271,6 +273,22 @@ proc sort
     ;
     by 
         age
+    ;
+run;
+
+*
+Stacking Score & Pp60_ to be able to print side-by-side bar graph
+;
+
+data n2; 
+      set nmean
+    ;
+      type = "Score"; response = Score; output
+    ;
+      type = "Pp60_"; response = Pp60_; output
+    ;
+    drop 
+      score pp60_
     ;
 run;
 
