@@ -170,7 +170,7 @@ data NHL1617_analytic_file;
     else Aggression=0
     ;
     format 
-        Pp60_ Useful 6.4 
+        Pp60_ Useful 6.3 
         tm $5. 
         GP G PTS HIT PIM TOI 4.
     ;
