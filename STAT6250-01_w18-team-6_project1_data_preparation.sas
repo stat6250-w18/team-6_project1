@@ -162,8 +162,11 @@ data NHL1617_analytic_file;
     ;
     Pen60_ = PIM/(1.5*TOI)
     ;
-    test = std(Pp60_, Hp60_, Pen60_);
-    if test ^=0 then Aggression = (((Pp60_ * ((Hp60_ + Pen60_)/2))*GP)**2)/test;
+    test = std(Pp60_, Hp60_, Pen60_)
+    ;
+    if test ^=0 
+        then Aggression = (((Pp60_ * ((Hp60_ + Pen60_)/2))*GP)**2)/test
+    ;
     else Aggression=0
     ;
     format 
