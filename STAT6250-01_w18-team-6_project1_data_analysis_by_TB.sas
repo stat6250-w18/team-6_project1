@@ -33,8 +33,13 @@ title2
 ;
 
 footnote1
-'The list of players with the most goals recorded coincidentally have a high number of assists recorded. This tell'
+'The list of players with the most goals recorded coincidentally have a high number of assists recorded.'
 ;
+
+footnote2
+'There is a variation among the top players between the number of assists and goals but for the most part most have more goals scored than assists recorded.'
+;
+
 *
 Methodology: Calculate the goal to assist numbers among the top players. 
 And sort data in descending order to show the top 20 players that lead in
@@ -73,6 +78,15 @@ title2
 footnote1
 'The goal and minutes played will help us futher breakdown the player statistics for different comparisons.'
 ;
+
+footnote2
+'We can see there is a significant difference in the TOI among the different players but the amount of goals scored are close in number.'
+;
+
+footnote3
+'We can conclude that the players with the most goals in a relatively average TOI are the most efficient.'
+;
+
 *
 Methodology: We organize the data to see the top goal scorers and look 
 at the minutes leaders in among that list.
@@ -128,6 +142,15 @@ title2
 footnote1
 'The assist and minutes played in addition to the goal and minutes played should give us a detailed analysis offensive efficency.'
 ;
+
+footnote2
+'We can see that the players with the most TOI are among the tope assist leaders.'
+;
+
+footnote3
+'We can conclude that the players with the most assists in a relatively average TOI are offensively efficent.'
+;
+
 *
 Methodology: We organzie the data to see the top assist leaders and see which 
 of those players also lead in minutes played.
