@@ -33,7 +33,7 @@ title2
 ;
 
 footnote1
-'The list of players with the most goals recorded coincidentally have a high number of assists recorded.'
+'The list of players with the most goals recorded coincidentally have a high number of assists recorded. This tell'
 ;
 *
 Methodology: Calculate the goal to assist numbers among the top players. 
@@ -64,6 +64,7 @@ footnote;
     
 title1 
 'Research Question: How does the goal and minutes played between the top players compare?' 
+;
 
 title2
 'Rationale: This helps us determine the players efficiency based off of their time on the ice and the amount of goals they score.'
