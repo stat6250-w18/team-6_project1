@@ -108,7 +108,7 @@ footnote4
 ;
 
 footnote5
-'This results matches my intuition of players gaining skill up till around age 25/26 where they peak, followed by a downward trend afterwards.'
+'This results matches my intuition of players gaining skill up till around age 24/25 where they peak, followed by a downward trend afterwards.'
 ;
 
 *
@@ -123,20 +123,17 @@ data to refine "score".
 
 ;
 
-proc print 
-        data=nmean 
-        noobs
+proc sgplot 
+        data=n2
     ;
-    where 
-        age>16
+    vbar age /  group = type 
+                response = response 
+                groupdisplay=cluster
+    ; 
+    yaxis grid
     ;
-    var 
-        age _FREQ_ pp60_ score
-    ;
-    format 
-        pp60_ score 5.3
-    ;
-run;
+run;                                                                                                                                    
+quit; 
 
 title;
 footnote;
