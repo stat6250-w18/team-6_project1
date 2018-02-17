@@ -92,7 +92,7 @@ title2
 ;
 
 footnote1
-'Looking at the chart above I have each age listed, the number of players (with 20+ games), their avg Pp60_, and avg score.';
+'Looking at the chart above I have each age listed, their avg Pp60_, and avg score.';
 ;
 
 footnote2
@@ -108,12 +108,12 @@ footnote4
 ;
 
 footnote5
-'This results matches my intuition of players gaining skill up till around age 25/26 where they peak, followed by a downward trend afterwards.'
+'This results matches my intuition of players gaining skill up till around age 24/25 where they peak, followed by a downward trend afterwards.'
 ;
 
 *
 Methodology: Create Pp60_ and score variables, assuming current _freq_ is 
-top _freq_% of age. Using proc sort to sort by score.
+top _freq_% of age. Using proc sgplot to visualize data.
 
 Limitations: Only one season worth of data, using more would 
 reduce single season effects.
@@ -123,20 +123,17 @@ data to refine "score".
 
 ;
 
-proc print 
-        data=nmean 
-        noobs
+proc sgplot 
+        data=n2
     ;
-    where 
-        age>16
+    vbar age /  group = type 
+                response = response 
+                groupdisplay=cluster
+    ; 
+    yaxis grid
     ;
-    var 
-        age _FREQ_ pp60_ score
-    ;
-    format 
-        pp60_ score 5.3
-    ;
-run;
+run;                                                                                                                                    
+quit; 
 
 title;
 footnote;
